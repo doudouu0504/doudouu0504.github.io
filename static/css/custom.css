@@ -1,6 +1,6 @@
 /* 設定背景圖片 */
 .bg-black {
-    background-image: url('/images/background.jpeg') !important;
+    background-image: url('/images/forest.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;
