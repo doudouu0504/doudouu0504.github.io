@@ -1,9 +1,9 @@
 title = "doudouu0504"
 baseURL = "https://doudouu0504.github.io/"
 theme = "ananke"
-resourceDir = "../resources"
+resourceDir = "resources"
 
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh"
 sectionPagesMenu = "main"
 enableRobotsTXT = true
 
@@ -12,19 +12,6 @@ id = ''
 
 [pagination]
 pagerSize = 3 # this is set low for demonstrating with dummy content. Set to a higher number
-
-[languages.en]
-contentDir = "content/en"
-languageCode = 'en-US'
-weight = 1
-title = "doudouu0504"
-# languageDirection = 'rtl' for Right-To-Left languages
-
-[languages.fr]
-contentDir = "content/fr"
-languageCode = 'fr-FR'
-weight = 2
-title = "doudouu0504"
 
 [sitemap]
 changefreq = "monthly"
@@ -38,12 +25,13 @@ favicon = ""
 site_logo = ""
 description = "The last theme you'll ever need. Maybe."
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-featured_image = "/images/background.jpeg"
+background_color_class = "bg-black"
 # choose fitting and alignment styles for the featured image using Tachyons classes such as "cover|contain" for fitting and "bg-top|bg-center|bg-bottom" for alignment, or add any other class space-separated to customize further
-featured_image = "/images/background.jpeg"
+featured_image_class = "cover bg-top"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-black-60"
 recent_posts_number = 3
+custom_css = ["css/custom.css"]
 
 [params.ananke.social.share]
 networks = [
@@ -69,3 +57,4 @@ username = "patrickkollitsch"
 
 [params.ananke.social.bluesky]
 username = "kollitsch.dev"
+
