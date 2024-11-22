@@ -1,30 +1,30 @@
 /* 設定背景圖片 */
 .bg-black {
-    background-image: url('/images/forest.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    background-color: transparent !important;  /* 確保背景顏色是透明的 */
-    color: #ffffff !important;  /* 確保文字顏色是白色 */
-    position: absolute;  /* 或者 fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    position: relative;
-    z-index: 10;  /* 確保它在其他元素上層 */
-  }
-  
+  background-image: url("/images/forest.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important; /* 確保背景顏色是透明的 */
+  color: #ffffff !important; /* 確保文字顏色是白色 */
+  position: absolute; /* 或者 fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10; /* 確保它在其他元素上層 */
+}
+
 .mt4 {
-    background-image: url('/images/空拍山.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    background-color: transparent !important;  /* 確保背景顏色是透明的 */
-    color: #ffffff !important;  /* 確保文字顏色是白色 */
-    position: absolute;  /* 或者 fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    position: relative;
-    z-index: 10;  /* 確保它在其他元素上層 */
-  }
+  background-image: url("/images/空拍山.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important; /* 確保背景顏色是透明的 */
+  color: #ffffff !important; /* 確保文字顏色是白色 */
+  position: absolute; /* 或者 fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10; /* 確保它在其他元素上層 */
+}

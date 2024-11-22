@@ -18,7 +18,7 @@ changefreq = "monthly"
 priority = 0.5
 filename = "sitemap.xml"
 
-[params]
+[params] #
 text_color = ""
 author = ""
 favicon = ""
@@ -57,3 +57,25 @@ username = "patrickkollitsch"
 
 [params.ananke.social.bluesky]
 username = "kollitsch.dev"
+
+[markup] #這個是處理html的內容
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+[menu] #這個是navbar的連結
+  [[menu.main]]
+    name = "Profile"
+    url = "/profile/"
+    weight = 1
+  [[menu.main]]
+    name = "posts"
+    url = "/posts/"
+    weight = 2
+    [[menu.main]]
+    name = "about"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 4
