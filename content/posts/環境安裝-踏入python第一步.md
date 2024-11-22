@@ -4,7 +4,7 @@ draft = false
 title = '環境安裝-踏入python第一步'
 +++
 
-<img src="/images/python.jpg" alt="Forest" width="500px">
+<img src="/images/article/python.jpg" alt="Forest" width="500px">
 <p style="color:"><strong>內容提及:</strong>REPL、pyenv、Vscode、venv、poetry</p>
 進入python領域之前，可以先把套件安裝下載後學習，就可邊學習邊實作練習。
 <!--more-->
