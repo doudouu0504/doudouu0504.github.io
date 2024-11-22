@@ -17,7 +17,7 @@
 .mt4 {
   background-image: url("/images/空拍山.jpg") !important;
   background-size: cover !important;
-  background-position: center !important;
+  background-position: top !important;
   background-attachment: fixed !important;
   background-color: transparent !important; /* 確保背景顏色是透明的 */
   color: #ffffff !important; /* 確保文字顏色是白色 */
