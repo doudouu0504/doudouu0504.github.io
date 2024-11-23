@@ -15,6 +15,7 @@ title = '使用Django做一個頁面'
 <strong>一、MVC（Model-View-Controller）:</strong>
 <br>
 M （Model，模型）：封裝與資料庫的訪問，處理對資料庫的增刪改查（CRUD）。<br>
+CRUD:Ｃ(create)新增、Ｒ(read)讀取、Ｕ (update)更新、D（delete）刪除。<br>
 V （View，視圖）：負責（1）處理業務邏輯、封裝結果；（2）生成頁面展現給使用者。<br>
 C （Controller，控制器）：對 Request、Response 進行處理、處理 Model 與 View 的交互。
 <br><br>
@@ -22,8 +23,9 @@ C （Controller，控制器）：對 Request、Response 進行處理、處理 Mo
 M （Model，模型）： 同上 Model。<br>
 T （Template，模板）：同上的 View （2）生成頁面展現給使用者的部分，也就是我們看見的前端 HTML、CSS、JavaScript 的部分。<br>
 V （Views，視圖）：同上的 View （1）處理業務邏輯、封裝結果的部分，負責處理 URL 與 callback 函式之間的關係，每一個 view 都代表一個簡單的 Python function。<br>
-<br>
 C （Controller，控制器）的部分如果要對應的話為 Django 本身。
+<br>
+這一篇主要為T跟V的部分｀：<br>
 MTV：Model(溝通),Template(畫面),View(流程及邏輯控制)
 
 <p>
