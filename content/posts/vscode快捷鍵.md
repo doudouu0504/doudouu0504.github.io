@@ -4,7 +4,7 @@ draft = false
 title = 'Vscode快捷鍵'
 +++
 
-<img src="/images/article/vscode.jpg" alt="Forest" width="500px">
+<img src="/images/article/vscode1.jpg" alt="Forest" width="500px">
 <br>
 <p style="color:"><strong>內容提及:</strong>關於vscode的常用快捷鍵</p>
 

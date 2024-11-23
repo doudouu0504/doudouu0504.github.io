@@ -11,7 +11,7 @@ enableRobotsTXT = true
 id = ''
 
 [pagination]
-pagerSize = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+pagerSize = 6 # this is set low for demonstrating with dummy content. Set to a higher number
 
 [sitemap]
 changefreq = "monthly"
