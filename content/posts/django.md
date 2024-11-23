@@ -10,39 +10,43 @@ title = '使用Django做一個頁面'
 用 django 框架，做一個 about 頁面。
 
 <!--more-->
-<h3>前情提要:</h3>
-<strong>◎面試常見問題</strong><br>
+<h3 ><span style="background-color:#9B90C2; color:;">前情提要:<span></h3>
+<strong style="color:#91B550">◎面試常見問題</strong><br>
 <strong>一、MVC（Model-View-Controller）:</strong>
 <br>
-M （Model，模型）：封裝與資料庫的訪問，處理對資料庫的增刪改查（CRUD）。<br>
-CRUD:Ｃ(create)新增、Ｒ(read)讀取、Ｕ (update)更新、D（delete）刪除。<br>
-V （View，視圖）：負責（1）處理業務邏輯、封裝結果；（2）生成頁面展現給使用者。<br>
-C （Controller，控制器）：對 Request、Response 進行處理、處理 Model 與 View 的交互。
+
+<span style="color:red">M</span>（Model，模型）：封裝與資料庫的訪問，處理對資料庫的增刪改查（CRUD:Ｃ(create)新增、Ｒ(read)讀取、Ｕ (update)更新、D（delete）刪除。<br>
+
+<span style="color:red">V</span>（View，視圖）：負責（1）處理業務邏輯、封裝結果；（2）生成頁面展現給使用者。<br>
+
+<span style="color:red">C</span>（Controller，控制器）：對 Request、Response 進行處理、處理 Model 與 View 的交互。
 <br><br>
 <strong>二、MTV（Model-Template-View）:</strong><br>
-M （Model，模型）： 同上 Model。<br>
-T （Template，模板）：同上的 View （2）生成頁面展現給使用者的部分，也就是我們看見的前端 HTML、CSS、JavaScript 的部分。<br>
-V （Views，視圖）：同上的 View （1）處理業務邏輯、封裝結果的部分，負責處理 URL 與 callback 函式之間的關係，每一個 view 都代表一個簡單的 Python function。<br>
+<span style="color:red">M</span>（Model，模型）： 同上 Model。<br>
+
+<span style="color:red">T</span>（Template，模板）：同上的 View （2）生成頁面展現給使用者的部分，也就是我們看見的前端 HTML、CSS、JavaScript 的部分。<br>
+
+<span style="color:red">V</span>（Views，視圖）：同上的 View （1）處理業務邏輯、封裝結果的部分，負責處理 URL 與 callback 函式之間的關係，每一個 view 都代表一個簡單的 Python function。<br>
 C （Controller，控制器）的部分如果要對應的話為 Django 本身。
 <br>
-這一篇主要為T跟V的部分｀：<br>
+這一篇主要為 T 跟 V 的部分：<br>
 MTV：Model(溝通),Template(畫面),View(流程及邏輯控制)
 
 <p>
-<strong>◎ 如何用虛擬環境Poetry安裝Django，參考網址：</strong>
+<strong style="color:#91B550">◎ 如何用虛擬環境Poetry安裝Django，參考網址：</strong>
 <a href="https://builtwithdjango.com/blog/basic-django-setup" target="blank">點擊連結</a>
 </p>
 <p>
-◎ 做的資料夾（app），一定要輸入在根目錄下，setting 的 INSTALLED_APPS 裡面，要把新增的 app 寫入。
+<strong style="color:#91B550">◎ 注意：</strong>做的資料夾（app），一定要輸入在根目錄下，setting 的 INSTALLED_APPS 裡面，要把新增的 app 寫入。
 <br>
 (ex: 不管靜態或動態頁面的名稱，像是下面的 pages)
 </p>
 <p>
-◎ 下面描述的『外面的 templates/shared/layout.html』，一定要輸入名稱在根目錄下，setting 的 TEMPLATES 裡面的 DIRS 裡面才讀取得到。
+<strong style="color:#91B550">◎ 注意：</strong>下面描述的『外面的 templates/shared/layout.html』，一定要輸入名稱在根目錄下setting 的 TEMPLATES 裡面的 DIRS 裡面才讀取得到。
 （ex: "DIRS": ["templates"],）
 </p>
 
-<h3>🪐 開始做一個 about 頁面：</h3>
+<h3><span style="background-color:#9B90C2; color:;">🪐 開始做一個 about 頁面：<span></h3>
 <p>
 1、在虛擬環境下下載 django 套件:
 <a href="https://www.djangoproject.com/download/" target="blank">點擊連結</a>
