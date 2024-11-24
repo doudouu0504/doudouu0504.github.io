@@ -5,7 +5,7 @@
   background-position: center !important;
   background-attachment: fixed !important;
   background-color: transparent !important; /* 確保背景顏色是透明的 */
-  color: #ffffff !important; /* 確保文字顏色是白色 */
+  /*color: white !important;  確保文字顏色是白色 */
   position: absolute; /* 或者 fixed */
   top: 0;
   left: 0;

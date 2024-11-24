@@ -37,45 +37,43 @@ custom_css = ["css/custom.css"]
 networks = [
   "email",
   "facebook",
-  "bluesky",
-  "linkedin"
+  "instagram",
 ]
 
 [params.ananke.social.follow]
 networks = [
+  "instagram",
   "facebook",
-  "bluesky",
-  "linkedin"
 ]
 
 [params.ananke.social.facebook]
-username = "patrick.kollitsch"
-# profilelink = "https://www.facebook.com/patrick.kollitsch"
+username = "邱佳瑜"
+# profilelink = "https://www.facebook.com/doudouu0504/"
 
-[params.ananke.social.linkedin]
-username = "patrickkollitsch"
+[params.ananke.social.email]
+username = "佳瑜"
+# profilelink = "mailto:selinafs880504@gmail.com"
 
-[params.ananke.social.bluesky]
-username = "kollitsch.dev"
+
+[params.ananke.social.instagram]
+username = "doudouu_photos"
+# profilelink = "https://www.instagram.com/doudouu_photos/"
 
 [markup] #這個是處理html的內容
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
 [menu] #這個是navbar的連結
-  [[menu.main]]
-    name = "Profile"
-    url = "/profile/"
-    weight = 1
   [[menu.main]]
     name = "posts"
     url = "/posts/"
-    weight = 2
-    [[menu.main]]
+    weight = 1
+  [[menu.main]]
     name = "about"
     url = "/about/"
-    weight = 3
+    weight = 2
   [[menu.main]]
     name = "Home"
     url = "/"
-    weight = 4
+    weight = 3
