@@ -4,7 +4,7 @@ draft = false
 title = '使用Django做一個頁面'
 +++
 
-<img src="/images/article/django.jpg" alt="Forest" width="500px">
+<img src="/images/article/django.jpg" alt="Forest" width="600px">
 <br>
 <p style="color:"><strong>內容提及:</strong>安裝django、前期的MTV之TV的實作練習</p>
 用 django 框架，做一個 about 頁面。

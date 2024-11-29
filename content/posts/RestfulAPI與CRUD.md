@@ -4,7 +4,7 @@ draft = false
 title = 'Restful API與CRUD'
 +++
 
-<img src="/images/article/RestfulAPI與CRUD.jpg" alt="Forest" width="500px">
+<img src="/images/article/RestfulAPI與CRUD.jpg" alt="Forest" width="600px">
 <br>
 <p style="color:"><strong>內容提及:</strong>關於Restful API、CRUD</p>
 
