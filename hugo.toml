@@ -37,27 +37,34 @@ custom_css = ["css/custom.css"]
 networks = [
   "email",
   "facebook",
+  "youtube",
   "instagram",
 ]
 
 [params.ananke.social.follow]
 networks = [
   "instagram",
+  "youtube",
   "facebook",
 ]
 
 [params.ananke.social.facebook]
 username = "邱佳瑜"
-# profilelink = "https://www.facebook.com/doudouu0504/"
+profilelink = "https://www.facebook.com/doudouu0504/"
 
 [params.ananke.social.email]
-username = "佳瑜"
-# profilelink = "mailto:selinafs880504@gmail.com"
-
+username = "邱佳瑜"
+profilelink = "mailto:selinafs880504@gmail.com"
 
 [params.ananke.social.instagram]
 username = "doudouu_photos"
-# profilelink = "https://www.instagram.com/doudouu_photos/"
+profilelink = "https://www.instagram.com/doudouu_photos/"
+
+[params.ananke.social.youtube]
+username = "UU-Music Channel"
+profilelink = "https://www.youtube.com/@uu-musicchannel7080"
+ 
+
 
 [markup] #這個是處理html的內容
   [markup.goldmark]
