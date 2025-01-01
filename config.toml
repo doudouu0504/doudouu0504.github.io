@@ -8,15 +8,15 @@ sectionPagesMenu = "main"
 enableRobotsTXT = true
 
 [services.googleAnalytics]
-id = ''
+id = '' # 填入 Google Analytics ID（例如：UA-XXXXXXX-X）。
 
 [pagination]
-pagerSize = 6 # this is set low for demonstrating with dummy content. Set to a higher number
+pagerSize = 6 # 設定文章列表的分頁。
 
 [sitemap]
-changefreq = "monthly"
-priority = 0.5
-filename = "sitemap.xml"
+changefreq = "monthly" # 網站內容更新的頻率（例如 monthly）。
+priority = 0.5 # 優先級，範圍是 0.0 到 1.0。
+filename = "sitemap.xml" # 網站地圖文件的名稱。
 
 [params]
 text_color = ""
@@ -67,10 +67,14 @@ profilelink = "https://www.youtube.com/@uu-musicchannel7080"
 
 
 
-[markup] #這個是處理html的內容
-  [markup.goldmark]
+[markup] 
+  [markup.goldmark] #這個是處理html的內容
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.tableOfContents] #這個處理目錄
+    startLevel = 1
+    endLevel = 6
+    ordered = false
 
 [menu] #這個是navbar的連結
   [[menu.main]]
