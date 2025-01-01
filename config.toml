@@ -68,7 +68,7 @@ profilelink = "https://www.youtube.com/@uu-musicchannel7080"
 
 
 [markup] 
-  [markup.goldmark] #這個是處理html的內容
+  [markup.goldmark] #這個是處理html.js的內容
     [markup.goldmark.renderer]
       unsafe = true
   [markup.tableOfContents] #這個處理目錄

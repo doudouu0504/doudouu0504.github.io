@@ -2,6 +2,7 @@
 date = '2024-11-29T18:21:44+08:00'
 draft = false
 title = '關於git的常見指令'
+tags = ['教學','git','GitHub']
 +++
 
 <img src="/images/article/aboutgit.jpg" alt="Forest" width="600px">
@@ -18,10 +19,11 @@ title = '關於git的常見指令'
 
 <span style="color:red">注意</span>：分支切錯換名字就好了！！！！！分支就是個貼紙而已
 
-<h3>一、在vscode可以安裝：</h3>
+# 一、在 vscode 可以安裝
+
 git graph（可以在執行時，在終端機底下那一條看歷史紀錄）
 
-<h3>二、一般指令：</h3>
+# 二、一般指令
 
 ```py
 * git help commit(可以看內建的commit有什麼呼叫的方式)
@@ -54,10 +56,13 @@ git graph（可以在執行時，在終端機底下那一條看歷史紀錄）
 * git clone +<別人的git開放式網站> （把別人的網址放編輯器加這串就不用下載）
 ```
 
-<h3>三、Git練習小遊戲</h3>
+# 三、Git 練習小遊戲
+
 <a href="https://learngitbranching.js.org/?locale=zh_TW " target="_blank">遊戲連結</a>
-<h3>四、上傳文章</h3>
-先創好GitHub資料夾project，會有以下指示，在編輯器終端機照著以下內容輸入。
+
+# 四、上傳文章
+
+先創好 GitHub 資料夾 project，會有以下指示，在編輯器終端機照著以下內容輸入。
 
 ```py
 * git init(格式化)
@@ -69,7 +74,8 @@ git graph（可以在執行時，在終端機底下那一條看歷史紀錄）
 * git push -u origin main(去吧～把 main 分支推到origin)
 ```
 
-<h3>五、如何上傳github</h3>
+# 五、如何上傳 github
+
 日後想要更新你的文章，輸入以下指令就可以更新文章內容
 
 ```py

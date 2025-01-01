@@ -47,22 +47,32 @@
         <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
       {{ end }}
     </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
-      {{- .Content -}}
-      {{- partial "tags.html" . -}}
-      <div class="mt6 instapaper_ignoref">
-      {{ if .Site.Config.Services.Disqus.Shortname }}
-        {{ template "_internal/disqus.html" . }}
-      {{ end }}
-      {{ if .Site.Params.commentoEnable }}
-        {{- partial "commento.html" . -}}
-      {{ end }}
+    <div class="flex-l w-100">
+      <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
+        {{- .Content -}}
+        {{- partial "tags.html" . -}}
+        <div class="mt6 instapaper_ignoref">
+        {{ if .Site.Config.Services.Disqus.Shortname }}
+          {{ template "_internal/disqus.html" . }}
+        {{ end }}
+        {{ if .Site.Params.commentoEnable }}
+          {{- partial "commento.html" . -}}
+        {{ end }}
+        </div>
       </div>
+
+      <aside class="w-30-l mt6-l pl3">
+      {{ if .TableOfContents }}
+      <nav class="toc">
+        <h2 class="ttu f6 tracked">目錄</h2>
+        {{ .TableOfContents }}
+      </nav>
+      {{ end }}
+      {{ if .Params.show_related_posts }}
+        {{- partial "menu-contextual.html" . -}}
+      {{ end }}
+
+      </aside>
     </div>
-
-    <aside class="w-30-l mt6-l">
-      {{- partial "menu-contextual.html" . -}}
-    </aside>
-
   </article>
 {{ end }}

@@ -28,3 +28,37 @@
   position: relative;
   z-index: 10; /* 確保它在其他元素上層 */
 }
+.toc {
+  background-color: #f9f9f9; /* 淺灰背景 */
+  padding: 1rem; /* 內邊距 */
+  border: 1px solid #ddd; /* 邊框 */
+  border-radius: 8px; /* 圓角 */
+  position: sticky; /* 固定位置 */
+  top: 20px; /* 距離頂部 */
+  max-height: 80vh; /* 限制高度 */
+  overflow-y: auto; /* 滾動條 */
+}
+
+.toc h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.toc ul {
+  list-style: none; /* 去掉列表符號 */
+  padding-left: 0;
+}
+
+.toc ul li {
+  margin-bottom: 0.5rem;
+}
+
+.toc ul li a {
+  color: #333; /* 連結文字顏色 */
+  text-decoration: none; /* 去掉底線 */
+}
+
+.toc ul li a:hover {
+  color: #007bff; /* 滑鼠懸停時的顏色 */
+}

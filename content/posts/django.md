@@ -2,6 +2,8 @@
 date = '2024-11-22T10:41:17+08:00'
 draft = false
 title = '使用Django做一個頁面'
+tags = ['教學','Django']
+
 +++
 
 <img src="/images/article/django.jpg" alt="Forest" width="600px">
@@ -10,8 +12,9 @@ title = '使用Django做一個頁面'
 用 django 框架，做一個 about 頁面。
 
 <!--more-->
-<h3 ><span style="background-color:#9B90C2; color:;">前情提要:<span></h3>
-<strong style="color:#91B550">◎面試常見問題</strong><br>
+
+# 面試常見問題
+
 <strong>一、MVC（Model-View-Controller）:</strong>
 <br>
 
@@ -46,7 +49,8 @@ MTV：Model(溝通),Template(畫面),View(流程及邏輯控制)
 （ex: "DIRS": ["templates"],）
 </p>
 
-<h3><span style="background-color:#9B90C2; color:;">🪐 開始做一個 about 頁面：<span></h3>
+# 開始做一個 about 頁面
+
 <p>
 1、在虛擬環境下下載 django 套件:
 <a href="https://www.djangoproject.com/download/" target="blank">點擊連結</a>
@@ -162,7 +166,7 @@ python manage.py runserver
 
 就成功了！
 
-◎django 的註解：
+# django 的註解
 
 ```py
 {% comment %}

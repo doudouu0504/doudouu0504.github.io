@@ -70,6 +70,10 @@ profilelink = "https://www.youtube.com/@uu-musicchannel7080"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.tableOfContents] #這個處理目錄
+    startLevel = 1
+    endLevel = 3 #文章是否包含標題（#, ##, ###）
+    ordered = false
 
 [menu] #這個是navbar的連結
   [[menu.main]]

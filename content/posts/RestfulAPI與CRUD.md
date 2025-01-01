@@ -2,6 +2,7 @@
 date = '2024-11-23T13:08:55+08:00'
 draft = false
 title = 'Restful API與CRUD'
+tags = ['教學']
 +++
 
 <img src="/images/article/RestfulAPI與CRUD.jpg" alt="Forest" width="600px">
@@ -10,15 +11,18 @@ title = 'Restful API與CRUD'
 
 <!--more-->
 
-<h3><span style="background-color:#9B90C2; color:;"> RESTful API:</span></h3>
+# RESTful API 介紹
+
 RESTful API 是一種遵循 REST (Representational State Transfer) 架構風格的 Web API 設計方式。REST 的核心思想是通過統一的資源接口（URI）來操作資源，並使用標準的 HTTP 協議（如 GET、POST、PUT、DELETE）進行通信。
 <br>
 RESTful API 被廣泛應用於「前後端分離」架構中，使得前端（如 Web 或手機應用）能與後端服務通過標準化接口進行通信。
 
-<h3>RESTful API 的六大設計原則</h3>
+# RESTful API 的六大設計原則
+
 REST 的架構風格基於以下六個核心原則：
 <br>
 1、統一接口 (Uniform Interface)
+
 <ul>
     <li>每個資源都有統一的 URI (資源路徑)。</li>
     <li>HTTP 方法（GET、POST、PUT、DELETE 等）用於執行操作。</li>
@@ -49,7 +53,9 @@ REST 的架構風格基於以下六個核心原則：
     <li>客戶端只需關注用戶界面與交互；服務器則負責數據存儲和邏輯處理。</li>
 </ul>
 <br>
-<h3>HTTP 方法與資源操作</h3>
+
+# HTTP 方法與資源操作
+
 HTTP 方法被用來對資源執行操作，具體對應如下：
 
 ```py
@@ -61,7 +67,8 @@ PATCH     更新（部分更新） 僅更新資源中的部分字段。
 DELETE    刪除           刪除指定資源。
 ```
 
-<h3>HTTP 狀態碼</h3>
+# HTTP 狀態碼
+
 RESTful API 使用標準的 HTTP 狀態碼來表示操作結果。例如：
 
 ```py
@@ -75,8 +82,10 @@ RESTful API 使用標準的 HTTP 狀態碼來表示操作結果。例如：
 500        服務器內部錯誤。
 ```
 
-<h3><span style="background-color:#9B90C2; color:;">CRUD:<span></h3>
+# CRUD
+
 CRUD 是針對數據操作的基本概念，通常在內部系統（如後端數據庫操作、應用邏輯層）中使用。CRUD 通常用於開發人員直接處理數據時的核心功能。
+
 <h3>用途</h3>
 數據庫操作：<br>
 1、CRUD 是關於如何和數據庫交互的核心概念。例如：
@@ -95,7 +104,7 @@ CRUD 是針對數據操作的基本概念，通常在內部系統（如後端數
 <li>例如，後端應用邏輯處理「用戶管理」，就會對用戶數據進行 CRUD 操作。</li>
 </ul>
 
-<h3><span style="background-color:#9B90C2; color:;">RESTful API 的設計與 CRUD 的對應：</</span></h3>
+# RESTful API 的設計與 CRUD 的對應
 
 ```py
 /HTTP方法/ /RESTful API功能/ /對應CRUD動作/ /範例/
@@ -117,7 +126,7 @@ DELETE    刪除一個資源        Delete       刪除一筆產品資料
 數據資源	以數據庫的數據為核心       強調資源的概念，資源以 URI 表示
 ```
 
-<h3><span style="background-color:#9B90C2;">總結:</span></h3>
+# 總結
 
 <ul>
 <li>CRUD 是數據層的基礎操作，通常用於內部的數據邏輯中，例如處理數據庫或文件系統中的數據。</li>

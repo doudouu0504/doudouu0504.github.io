@@ -2,6 +2,7 @@
 date = '2024-11-23T11:40:26+08:00'
 draft = false
 title = 'Vscode快捷鍵'
+tags = ['教學','Vscode']
 +++
 
 <img src="/images/article/vscode1.jpg" alt="Forest" width="600px">
@@ -12,7 +13,7 @@ title = 'Vscode快捷鍵'
 
 詳細資訊收錄在官方手冊，文件參考：<a href="https://code.visualstudio.com/docs/editor/codebasics" target="_blank">點擊連結</a>
 
-<h3 id="me">一般指令：</h3>
+# 一、一般指令
 
 ```py
 Ctrl+Shift+P F1     #命令選擇區
@@ -27,7 +28,7 @@ Control+backtick    #開啟終端機
 
 ```
 
-<h3 >基本編輯：</h3>
+# 二、基本編輯
 
 ```py
 Ctrl+X               #剪下該行（未選取可）
@@ -54,7 +55,7 @@ Alt+Z                #切換自動換行
 Command+D            #往下選取
 ```
 
-<h3>Console裡面快捷鍵：</h3>
+# 三、Console 裡面快捷鍵
 
 ```py
 control+w      #在console裡面砍一個字

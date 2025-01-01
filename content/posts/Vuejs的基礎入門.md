@@ -2,20 +2,23 @@
 date = '2024-12-02T10:44:40+08:00'
 draft = false
 title = 'Vue-js的基礎入門'
+tags = ['教學','Vue.js']
 +++
 
 <img src="/images/article/about_vue.jpg" alt="Forest" width="600px">
 <br>
 <p style="color:"><strong>內容提及:</strong>Vue的常見指令、事件與迴圈</p>
 <!--more-->
-前情提要：<br>
+
+## 前情提要
+
 一、v 開頭都是 Vue 的指令，value 只有 script 裡面要加。<br>
 二、用 `ref` 包起來的這個變數，Vue 就可以知道變動，可以放字串、物件、陣列，且會反映在畫面上。<br>
 三、不用關心 DOM，因可以直接去抓，可以不用使用到` document.queryselector`。<br>
 四、會用兩個以上的元件做命名，是為了做區別
-五、import進來的子元件可以當tag使用
+五、import 進來的子元件可以當 tag 使用
 <a href="https://play.vuejs.org/#eNp9kctOwzAQRX9l8CYgVakQrEpa8VClwgIQILHxJkqnqYtjW36ESlH+nbFDUxaoiyiZudeTcz0duzMmbwOyGStcZYXx4NAHs+BKNEZbDx1Y3EAPG6sbyMiaccVVpZXz0Lga5lE/z1YopYZPbeX6LLu4OXqEMsGvSrWWaMmMLSoP8wV0XEEckLelDHhQcl/aGv3QpCk9PcV0ICMmKjw2RpYeqQIotpeLrkscfV9MqUrd9E+4Ta85Z38ROINpMsW54yw2Yd4R70bU+c5pRdeR+DirdGMEnXsxXlAezmYDedRKivz9lHreBpwc+tUWq69/+ju3jz3OXi06tC1yNmpD7kFevj/jnr5HsdHrIMl9QnxDp2WIjIPtPvzGHX2J9jEtVaj6wy33HpU7hIqg0dknP2e06IcT0Y+4V/l1Oke7Yv0PGrvFqQ==" target="_blank">練習網址</a><br>
-練習一個Hello World!
+練習一個 Hello World!
 
 ```html
 <script setup>
@@ -30,7 +33,8 @@ title = 'Vue-js的基礎入門'
 </template>
 ```
 
-<h3>事件</h3>
+## 事件
+
 v-model ：這個指令專門用在表單模式上(input 裡面)<br>
 contenteditable ：可以加在 div 裡面，讓它可以有個值
 
@@ -132,7 +136,7 @@ vue 用` v-bind:value=""`控制屬性<br>
 </template>
 ```
 
-<h3>迴圈</h3>
+## 迴圈
 
 `v-for="命名(item) in 前面的陣列或物件"`<br>
 若是內容要放陣列或物件裡的東西，用兩個大括號包住：<br>
@@ -182,9 +186,11 @@ vue 用` v-bind:value=""`控制屬性<br>
 </template>
 ```
 
-<h3>Vue的指令：</h3>
-開啟編輯器Vscode後在終端機執行<br>
+## Vue 的指令
+
+開啟編輯器 Vscode 後在終端機執行<br>
 執行流程如下：<br>
+
 <p style="color:blue"><strong>一、初始化專案（建立專案結構）</strong></p>
 
 ```
