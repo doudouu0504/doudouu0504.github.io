@@ -3,7 +3,7 @@ baseURL = "https://doudouu0504.github.io/"
 theme = "ananke"
 resourceDir = "resources"
 
-defaultContentLanguage = "zh"
+defaultContentLanguage = "en"
 sectionPagesMenu = "main"
 enableRobotsTXT = true
 

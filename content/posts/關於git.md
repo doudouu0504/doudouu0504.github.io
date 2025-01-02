@@ -2,7 +2,7 @@
 date = '2024-11-29T18:21:44+08:00'
 draft = false
 title = '關於git的常見指令'
-tags = ['教學','git','GitHub']
+tags = ['軟體教學','git','GitHub']
 +++
 
 <img src="/images/article/aboutgit.jpg" alt="Forest" width="600px">

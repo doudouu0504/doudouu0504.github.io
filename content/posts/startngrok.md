@@ -2,7 +2,7 @@
 date = '2025-01-01T19:04:47+08:00'
 draft = false
 title = '新手必備：Ngrok 詳盡教學指南'
-tags = ['Ngrok', '教學', 'Django']
+tags = ['Ngrok','軟體教學','Django']
 categories = ['軟體教學','Django']
 summary = '學習如何使用 Ngrok 分享本地服務到外部網絡，適合新手的一站式教學。'
 +++

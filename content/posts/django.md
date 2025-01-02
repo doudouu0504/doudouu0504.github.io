@@ -2,7 +2,7 @@
 date = '2024-11-22T10:41:17+08:00'
 draft = false
 title = '使用Django做一個頁面'
-tags = ['教學','Django']
+tags = ['軟體教學','Django']
 
 +++
 

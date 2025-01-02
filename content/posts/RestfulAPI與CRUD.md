@@ -2,7 +2,7 @@
 date = '2024-11-23T13:08:55+08:00'
 draft = false
 title = 'Restful API與CRUD'
-tags = ['教學']
+tags = ['軟體教學']
 +++
 
 <img src="/images/article/RestfulAPI與CRUD.jpg" alt="Forest" width="600px">
