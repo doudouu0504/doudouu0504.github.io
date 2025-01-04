@@ -6,6 +6,9 @@ tags = ['Django','綠界金流','支付整合','Python']
 categories = ["技術教學"]
 +++
 
+<img src="/images/article/ecpaytest.jpg" alt="Forest" width="600px">
+<br>
+<p style="color:"><strong>內容提及:</strong>串接支付流程的詳細說明、測試網站適用</p>
 金流功能是現代網站必不可少的商業化功能之一。本文中，將指導如何在 Django 框架中經由綠界金流完成支付功能的串接。最終將實現一個包括服務選擇、訂單管理和支付清算的完整流程。
 
 <!--more-->
