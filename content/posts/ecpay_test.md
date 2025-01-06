@@ -132,6 +132,7 @@ from django.conf import settings
 from datetime import datetime
 import hashlib
 import urllib.parse
+from django.urls import reverse
 ```
 
 這些模組用於處理 HTTP 請求、驗證用戶、操作數據庫模型，並生成必要的加密值。
@@ -180,47 +181,62 @@ def generate_check_mac_value(params, hash_key, hash_iv):#定義了一個函數 g
 以下是實作 `create_order` 的詳細代碼，用於建立訂單並傳遞金流參數給前端：
 
 ```python
-@login_required  # 確保只有已登入用戶才能建立訂單
+@login_required
 def create_order(request):
-    service_id = request.GET.get("service_id")  # 從請求中取得服務 ID
-    selected_plan = request.GET.get("plan")  # 從請求中取得選擇的方案
-    service = get_object_or_404(Service, id=service_id)  # 確保服務存在
+    if request.method == "POST":
+        service_id = request.POST.get("service_id")  # 從前端獲取 service_id
+        selected_plan = request.POST.get("plan")  # 獲取前端傳入的方案
+        payment_method = request.POST.get("payment_method")  # 獲取支付方式
+        service = get_object_or_404(Service, id=service_id)
 
-    # 動態設置金額
-    if selected_plan == "standard":
-        total_price = service.standard_price  # 設置標準方案金額
-    elif selected_plan == "premium":
-        total_price = service.premium_price  # 設置高級方案金額
-    else:
-        return JsonResponse({"error": "Invalid plan selected."}, status=400)  # 返回錯誤訊息
+        # 動態設置金額
+        if selected_plan == "standard":
+            total_price = service.standard_price
+        elif selected_plan == "premium":
+            total_price = service.premium_price
+        else:
+            return JsonResponse({"error": "Invalid plan selected."}, status=400)
+        valid_payment_methods = {
+            "credit_card": "Credit",
+            "atm": "ATM",
+            "linepay": "LinePay",#等上線開通後才可啟用，測試環境不行
+            "googlepay": "GooglePay",#等上線開通後才可啟用，測試環境不行
+            "barcode": "BARCODE",
+        }
 
-    # 建立訂單
-    order = Order.objects.create(
-        client_user=request.user,  # 訂單的用戶為當前登入的用戶
-        service_id=service_id,  # 設置服務 ID
-        total_price=total_price,  # 設置總金額
-        status="Pending",  # 訂單初始狀態設為 Pending
-        payment_method="CreditCard",  # 設置支付方式
-    )
+        if payment_method not in valid_payment_methods:
+            return JsonResponse(
+                {"error": "Invalid payment method selected."}, status=400
+            )
 
-    # 綠界金流參數
-    params = {
-        "MerchantID": MERCHANT_ID,  # 綠界商店代號
-        "MerchantTradeNo": order.merchant_trade_no,  # 訂單編號
-        "MerchantTradeDate": datetime.now().strftime("%Y/%m/%d %H:%M:%S"),  # 訂單交易日期
-        "PaymentType": "aio",  # 支付類型
-        "TotalAmount": int(order.total_price),  # 訂單金額
-        "TradeDesc": "Payment for Order",  # 訂單描述
-        "ItemName": f"Order {order.id}",  # 商品名稱
-        "ReturnURL": "http://127.0.0.1:8000/order/return/",  # 金流回傳網址
-        "OrderResultURL": "http://127.0.0.1:8000/order/result/",  # 金流結果網址
-        "ChoosePayment": "All",  # 支付方式
-    }
-    params["CheckMacValue"] = generate_check_mac_value(params, HASH_KEY, HASH_IV)  # 計算 CheckMacValue
+        # 建立訂單
+        order = request.user.orders_as_client.create(
+            service=service,
+            total_price=total_price,
+            payment_method=payment_method,
+        )
+        # 綠界金流參數
+        params = {
+            "MerchantID": MERCHANT_ID,
+            "MerchantTradeNo": order.merchant_trade_no,
+            "MerchantTradeDate": datetime.now().strftime("%Y/%m/%d %H:%M:%S"),
+            "PaymentType": "aio",
+            "TotalAmount": int(order.total_price),
+            "TradeDesc": "Payment for Order",
+            "ItemName": f"Order {order.id}",
+            "ReturnURL": request.build_absolute_uri(reverse("order:ecpay_return")),
+            "OrderResultURL": request.build_absolute_uri(reverse("order:ecpay_result")),
+            "ChoosePayment": valid_payment_methods[payment_method],
+        }
+        params["CheckMacValue"] = generate_check_mac_value(params, HASH_KEY, HASH_IV)
 
-    return render(
-        request, "order/payment_form.html", {"ecpay_url": ECPAY_URL, "params": params}  # 傳遞參數至前端模板
-    )
+        # 傳遞至前端表單
+        return render(
+            request,
+            "order/payment_form.html",
+            {"ecpay_url": ECPAY_URL, "params": params},
+        )
+    return JsonResponse({"error": "Invalid request method."}, status=405)
 ```
 
 #### 關鍵點解釋
@@ -286,18 +302,83 @@ def failed(request):
 
 ### 3.7 自動提交的金流表單模板
 
+在 order/templates/order/payment_form＿select.html，添加 `payment_form_select.html` 模板，快速將用戶導向綠界支付頁面：<br>
+(此模板使用 Tailwind 樣式製作)
+
+````html
+
+<form method="POST" action="{% url 'order:create_order' %}">
+    {% csrf_token %}
+        <!-- 隱藏的服務 ID -->
+        <input type="hidden" name="service_id" value="{{ service.id }}">
+        <input type="hidden" name="plan" value="{{ selected_plan }}">
+        <!-- 方案選擇 -->
+        <div class="mb-6">
+            <label for="plan" class="block mb-2 font-medium text-gray-900">方案</label>
+            <select
+                 id="plan"
+                 name="plan"
+                 class="w-full p-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 onchange="togglePlanView(this.value)"
+            >
+                 <option value="standard" {% if selected_plan == "standard" %}selected{% endif %}>
+                     一般方案
+                 </option>
+                 <option value="premium" {% if selected_plan == "premium" %}selected{% endif %}>
+                     專業方案
+                </option>
+            </select>
+         </div>
+
+         <!-- 支付方式 -->
+        <div class="mb-6">
+             <label for="payment-method" class="block mb-2 font-medium text-gray-900">支付方式</label>
+             <select
+                 id="payment_method"
+                 name="payment_method"
+                 class="w-full p-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+             >
+                 <option value="" disabled selected>請選擇</option>
+                 <option value="credit_card">信用卡(20萬以下)</option>
+                 <option value="atm">ATM 轉帳(5萬以下)</option>
+                 <option value="linepay">Line Pay</option>
+                 {% comment %} <option value="googlepay">Google Pay</option> {% endcomment %}
+                 <option value="barcode">超商條碼(2萬以下)</option>
+             </select>
+        </div>
+         <!-- 按鈕區域 -->
+        <div class="flex justify-between mb-4">
+             <button
+                 type="button"
+                 class="px-4 py-2 font-semibold text-white bg-gray-400 rounded-lg hover:bg-gray-500 focus:outline-none focus:shadow-outline"
+                 onclick="history.back();"
+             >
+                 上一步
+             </button>
+             <button
+                 type="submit"
+                 class="px-4 py-2 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                 id="nextButton"
+                 disabled
+             >
+                 下一步
+             </button>
+        </div>
+</form>
+       ```
+
 在 order/templates/order/payment_form.html，添加 `payment_form.html` 模板，快速將用戶導向綠界支付頁面：
 
 ```html
 <form id="ecpay_form" method="post" action="{{ ecpay_url }}">
-  {% for key, value in params.items %}
-  <input type="hidden" name="{{ key }}" value="{{ value }}" />
-  {% endfor %}
+ {% for key, value in params.items %}
+ <input type="hidden" name="{{ key }}" value="{{ value }}" />
+ {% endfor %}
 </form>
 <script>
-  document.getElementById("ecpay_form").submit(); // 自動提交表單
+ document.getElementById("ecpay_form").submit(); // 自動提交表單
 </script>
-```
+````
 
 ---
 
@@ -322,10 +403,13 @@ class Order(models.Model):
         ("cancelled", "Cancelled"),
     ]
 
+    #綠界支援多種支付方式
     PAYMENT_METHOD_CHOICES = [
-        ("credit_card", "Credit Card"),
-        ("atm", "ATM"),
-        ("linepay", "Linepay"),
+        ("credit_card", "Credit Card"),#金額(20萬以下)
+        ("atm", "ATM"), #金額(5萬以下)
+        ("linepay", "Line Pay"), #測試環境不支援
+        ("googlepay", "Google Pay"), #測試環境不支援
+        ("barcode", "Barcode"),#超商條碼金額(2萬以下)
     ]
 
     PLAN_CHOICES = [
