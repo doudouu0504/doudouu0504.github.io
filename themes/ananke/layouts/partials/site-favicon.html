@@ -1,2 +1,13 @@
-{{ if .Site.Params.favicon }} <link rel="icon" href="{{ .Site.BaseURL }}{{
-.Site.Params.favicon | default "favicon.ico" }}"> {{ end }}
+{{ if .Site.Params.favicon }}
+<link
+  rel="icon"
+  href="{{ absURL ($.Site.Params.favicon) }}"
+  type="image/x-icon"
+/>
+<link
+  rel="shortcut icon"
+  href="{{ absURL ($.Site.Params.favicon) }}"
+  type="image/x-icon"
+/>
+<link rel="apple-touch-icon" href="{{ absURL ($.Site.Params.favicon) }}" />
+{{ end }}
