@@ -3,7 +3,7 @@ date = '2024-11-17T18:46:07+08:00'
 draft = false
 title = '環境安裝-踏入python第一步'
 tags = ['環境安裝','軟體教學','Django']
-
+categories = ["軟體教學"]
 +++
 
 <img src="/images/article/python.jpg" alt="Forest" width="600px">

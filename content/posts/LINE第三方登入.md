@@ -3,6 +3,8 @@ date = '2024-12-21T21:17:34+08:00'
 draft = false
 title = '如何在 Django 中實現 LINE 登入功能'
 tags = ['軟體教學','Django','Line','第三方金流']
+categories = ['軟體教學','Django']
+
 +++
 
 <img src="/images/article/LINElogin.jpg" alt="Forest" width="600px">

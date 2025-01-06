@@ -3,6 +3,8 @@ date = '2025-01-02T21:12:32+08:00'
 draft = false
 title = '如何高效管理 Git Issues 和分支：從開票到 PR 的完整流程'
 tags = ['軟體教學','git','GitHub']
+categories = ["軟體教學","git"]
+
 +++
 
 <img src="/images/article/gitissue.jpg" alt="Forest" width="600px">

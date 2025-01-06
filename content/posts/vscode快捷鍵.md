@@ -3,6 +3,7 @@ date = '2024-11-23T11:40:26+08:00'
 draft = false
 title = 'Vscode快捷鍵'
 tags = ['軟體教學','Vscode']
+categories = ["軟體教學"]
 +++
 
 <img src="/images/article/vscode1.jpg" alt="Forest" width="600px">

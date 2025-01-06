@@ -21,7 +21,7 @@ filename = "sitemap.xml"
 [params] #
 text_color = ""
 author = ""
-favicon = ""
+favicon = "favicon.ico"
 site_logo = "images/大頭貼1.png"
 description = "The last theme you'll ever need. Maybe."
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
@@ -85,6 +85,10 @@ profilelink = "https://www.youtube.com/@uu-musicchannel7080"
     url = "/about/"
     weight = 2
   [[menu.main]]
+    name = "categories"
+    url = "/categories/"
+    weight = 3
+  [[menu.main]]
     name = "Home"
     url = "/"
-    weight = 3
+    weight = 4

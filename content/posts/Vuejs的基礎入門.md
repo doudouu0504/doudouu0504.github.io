@@ -3,6 +3,7 @@ date = '2024-12-02T10:44:40+08:00'
 draft = false
 title = 'Vue-js的基礎入門'
 tags = ['軟體教學','Vue.js']
+categories = ["軟體教學"]
 +++
 
 <img src="/images/article/about_vue.jpg" alt="Forest" width="600px">

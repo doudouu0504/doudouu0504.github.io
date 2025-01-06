@@ -3,7 +3,8 @@ date = '2025-01-04T18:42:41+08:00'
 draft = false
 title = 'Django 中綠界金流串接之詳細學習'
 tags = ['Django','綠界金流','支付整合','Python']
-categories = ["技術教學"]
+categories = ['軟體教學','Django']
+
 +++
 
 <img src="/images/article/ecpaytest.jpg" alt="Forest" width="600px">
@@ -213,7 +214,7 @@ def create_order(request):
         "ItemName": f"Order {order.id}",  # 商品名稱
         "ReturnURL": "http://127.0.0.1:8000/order/return/",  # 金流回傳網址
         "OrderResultURL": "http://127.0.0.1:8000/order/result/",  # 金流結果網址
-        "ChoosePayment": "Credit",  # 支付方式
+        "ChoosePayment": "All",  # 支付方式
     }
     params["CheckMacValue"] = generate_check_mac_value(params, HASH_KEY, HASH_IV)  # 計算 CheckMacValue
 
