@@ -379,6 +379,8 @@ users/
   │       ├── password_reset_done.html
   │       ├── password_reset_confirm.html
   │       ├── password_reset_complete.html
+  │       ├── password_reset_subject.txt
+
 ```
 
 ---
