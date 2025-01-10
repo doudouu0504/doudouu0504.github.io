@@ -61,16 +61,22 @@ LINE 是一款流行的即時通訊軟體，它的開放平台為開發者提供
 
 - Channel Secret：稍後配置為 secret。
 
-4、 配置回調 URL：
+4、 配置 LINE Developers 中增加回調 URL：
 
 - 在 LINE 開發者平台的應用設置中，找到 Callback URL。
 
-- 設置為:<div style="background:	#D0D0D0">https://yourdomain.com/accounts/line/login/callback/</div>
+  設置為:<div style="background:	#D0D0D0">https://yourdomain.com/accounts/line/login/callback/</div>
 
 - 如果在本地測試，可以使用工具如 ngrok，生成臨時的 HTTPS URL。
 
 - 或是像我作為測試環境使用:<div style="background:	#D0D0D0">
   http://127.0.0.1:8000/accounts/line/login/callback/</div>
+
+5、在根目錄增加 URL
+
+- <div style="background:	#D0D0D0">
+        path("accounts/", include("allauth.urls")),
+  </div>
 
 # 三、安裝必要的依賴
 
@@ -158,7 +164,7 @@ SOCIALACCOUNT_LOGIN_ON_GET = True # 點擊登入按鈕後立即跳轉到 LINE �
 
 # 六、添加登入按鈕
 
-在模板中添加 LINE 登入按鈕：
+在網站的模板檔案中，使用 `django-allauth` 提供的模板標籤生成 LINE 登入按鈕：
 
 ```html
 <!--templates/login.html-->
@@ -210,10 +216,53 @@ def user_profile(request):
 2、 正確配置域名：確保在 LINE 開發者平台的 Callback URL 與你的站點域名一致。<br>
 3、 隱藏敏感信息：通過 .env 文件或環境變量存儲 client_id 和 secret。
 
+### 8.1 在部署時的配置內容 ✭
+
+以下是使用 zeabur 部署時增加的內容
+
+在 `settings.py` 中添加：
+
+```bash
+LINE_CALLBACK_URL = os.getenv(
+    "LINE_CALLBACK_URL", "http://localhost:8000/accounts/line/login/callback/"
+)
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://trico.zeabur.app",
+    "http://127.0.0.1:8000",
+]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "*",
+]
+```
+
+在`.env`中配置：
+
+```bash
+LINE_CALLBACK_URL=https://trico.zeabur.app/accounts/line/login/callback/
+
+```
+
+在 LINE Developers 的 Callback URL 中加入以下內容，一個是你的測試環境，一個是你部署的網址<br>
+<span style="color:red">**注意！！！** </span>不可以加逗號
+
+```bash
+http://127.0.0.1:8000/accounts/line/login/callback/
+https://trico.zeabur.app/accounts/line/login/callback/
+```
+
 # 九、結語
 
-這樣應該已經成功實現了 LINE 登入功能。<br>
+這樣應該已經成功實現了 LINE 登入功能！<br>
 
 django-allauth 不僅支持 LINE，還可以輕鬆集成其他社交平台（如綁定多個賬號、用戶資料同步，像是 Google、Facebook 等）。
 
 可以進一步探索其 API，實現更多功能，如用戶資料同步、綁定多個社交賬號等，讓網站更加實用。
+
+- 參考資源：<br>
+  [django-allauth 官方文檔](https://django-allauth.readthedocs.io/en/latest/)<br>
+  [LINE_Developers 平台](https://developers.line.biz/en/)<br>
