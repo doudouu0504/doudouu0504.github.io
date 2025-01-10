@@ -6,6 +6,9 @@ tags = ['Django','Python','Django郵件教學','忘記密碼功能']
 
 +++
 
+<img src="/images/article/GoogleSMTP.jpg" alt="Forest" width="600px">
+<br>
+<p style="color:"><strong>內容提及:</strong>使用忘記密碼流程</p>
 本文將詳細講解如何在 Django 中實現忘記密碼功能，並完整演示 Gmail SMTP 配置的每一步驟，幫助您快速部署信件服務。這個功能會利用 Gmail 作為信件伺服，並使用 Google 應用專用密碼進行伺服器帳號的登入串接。
 
 <!--more-->
