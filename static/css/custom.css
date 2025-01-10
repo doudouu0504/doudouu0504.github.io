@@ -1,11 +1,11 @@
 /* 設定背景圖片 */
 .bg-black {
-  background-image: url("/images/forest.png") !important;
+  background-image: url("/images/HEAD.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
   background-color: transparent !important; /* 確保背景顏色是透明的 */
-  /*color: white !important;  確保文字顏色是白色 */
+  /* color: black !important; */
   position: absolute; /* 或者 fixed */
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
 }
 
 .mt4 {
-  background-image: url("/images/空拍山.jpg") !important;
+  background-image: url("/images/BG.jpg") !important;
   background-size: cover !important;
   background-position: top !important;
   background-attachment: fixed !important;
@@ -27,6 +27,9 @@
   width: 100%;
   position: relative;
   z-index: 10; /* 確保它在其他元素上層 */
+}
+.mb0 {
+  color: #ffffff;
 }
 .toc {
   background-color: #f9f9f9; /* 淺灰背景 */
