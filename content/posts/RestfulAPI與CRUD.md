@@ -12,13 +12,13 @@ categories = ['軟體教學','Django']
 
 <!--more-->
 
-# RESTful API 介紹
+# 一、RESTful API 介紹
 
 RESTful API 是一種遵循 REST (Representational State Transfer) 架構風格的 Web API 設計方式。REST 的核心思想是通過統一的資源接口（URI）來操作資源，並使用標準的 HTTP 協議（如 GET、POST、PUT、DELETE）進行通信。
 <br>
 RESTful API 被廣泛應用於「前後端分離」架構中，使得前端（如 Web 或手機應用）能與後端服務通過標準化接口進行通信。
 
-# RESTful API 的六大設計原則
+# 二、RESTful API 的六大設計原則
 
 REST 的架構風格基於以下六個核心原則：
 <br>
@@ -55,7 +55,7 @@ REST 的架構風格基於以下六個核心原則：
 </ul>
 <br>
 
-# HTTP 方法與資源操作
+# 三、HTTP 方法與資源操作
 
 HTTP 方法被用來對資源執行操作，具體對應如下：
 
@@ -68,7 +68,7 @@ PATCH     更新（部分更新） 僅更新資源中的部分字段。
 DELETE    刪除           刪除指定資源。
 ```
 
-# HTTP 狀態碼
+# 四、HTTP 狀態碼
 
 RESTful API 使用標準的 HTTP 狀態碼來表示操作結果。例如：
 
@@ -83,9 +83,11 @@ RESTful API 使用標準的 HTTP 狀態碼來表示操作結果。例如：
 500        服務器內部錯誤。
 ```
 
-# CRUD
+# 五、CRUD
 
-CRUD 是針對數據操作的基本概念，通常在內部系統（如後端數據庫操作、應用邏輯層）中使用。CRUD 通常用於開發人員直接處理數據時的核心功能。
+CRUD 是針對數據操作的基本概念，通常在內部系統（如後端數據庫操作、應用邏輯層）中使用。CRUD 通常用於開發人員直接處理數據時的核心功能。以下影片為我的 CRUD 分享，使用 poetry 環境、Django 框架、Python 操作。
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jhw5rzoMCPM?si=vCFTmhpr7AOW4cN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <h3>用途</h3>
 數據庫操作：<br>
@@ -105,29 +107,27 @@ CRUD 是針對數據操作的基本概念，通常在內部系統（如後端數
 <li>例如，後端應用邏輯處理「用戶管理」，就會對用戶數據進行 CRUD 操作。</li>
 </ul>
 
-# RESTful API 的設計與 CRUD 的對應
+# 六、RESTful API 的設計與 CRUD 的對應
 
-```py
-/HTTP方法/ /RESTful API功能/ /對應CRUD動作/ /範例/
-POST      新增一個資源        Create       新增一筆產品資料
-GET       讀取資源(單個或多個) Read         獲取所有用戶的列表或某個用戶
-PUT       更新整個資源        Update       修改用戶資料
-PATCH     部分更新資源        Update       更新用戶的部分資料
-DELETE    刪除一個資源        Delete       刪除一筆產品資料
-```
+| HTTP 方法 | RESTful API 功能     | 對應 CRUD 動作 | 範例                         |
+| --------- | -------------------- | -------------- | ---------------------------- |
+| POST      | 新增一個資源         | Create         | 新增一筆產品資料             |
+| GET       | 讀取資源(單個或多個) | Read           | 獲取所有用戶的列表或某個用戶 |
+| PUT       | 更新整個資源         | Update         | 修改用戶資料                 |
+| PATCH     | 部分更新資源         | Update         | 更新用戶的部分資料           |
+| DELETE    | 刪除一個資源         | Delete         | 刪除一筆產品資料             |
 
 <h3><span style="background-color:#9B90C2;">差異點:</span></h3>
 
-```py
-/特性/	    /CRUD/	             /RESTful API/
-概念	描述數據操作的基本功能      是設計Web API的一種架構風格
-技術	與數據庫操作密切相關	使用Http方法來實現CRUD
-應用	一般用於系統內部邏輯	一般用於服務端和客戶端之間的通信
-方式	不依賴於特定的協議或技術    嚴格遵守 REST 原則，基於 HTTP
-數據資源	以數據庫的數據為核心       強調資源的概念，資源以 URI 表示
-```
+| 特性     | CRUD                     | RESTful API                      |
+| -------- | ------------------------ | -------------------------------- |
+| 概念     | 描述數據操作的基本功能   | 是設計 Web API 的一種架構風格    |
+| 技術     | 與數據庫操作密切相關     | 使用 HTTP 方法來實現 CRUD        |
+| 應用     | 一般用於系統內部邏輯     | 一般用於服務端和客戶端之間的通信 |
+| 方式     | 不依賴於特定的協議或技術 | 嚴格遵守 REST 原則，基於 HTTP    |
+| 數據資源 | 以數據庫的數據為核心     | 強調資源的概念，資源以 URI 表示  |
 
-# 總結
+# 七、總結
 
 <ul>
 <li>CRUD 是數據層的基礎操作，通常用於內部的數據邏輯中，例如處理數據庫或文件系統中的數據。</li>
