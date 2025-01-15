@@ -14,7 +14,11 @@ categories = ['軟體教學','Django']
 
 <!--more-->
 
-## 一、針對綠界金流進行註冊
+# 流程圖
+
+<img src="/images/article/第三方金流流程圖.jpg" alt="Forest" width="600px">
+
+# 一、針對綠界金流進行註冊
 
 在開始前，您需要先在綠界金流平台上註冊一個帳號。註冊步驟如下：
 
@@ -26,16 +30,18 @@ categories = ['軟體教學','Django']
 
 ### 1.1 測試環境
 
-若您正在進行開發或測試，可以使用綠界提供的測試環境參數：
+若正在進行開發或測試，可以使用綠界提供的測試環境參數：
 
-- **MerchantID**: `3002607`
-- **HashKey**: `pwFHCqoQZGmho4w6`
-- **HashIV**: `EkRm7iFT261dpevs`
-- **ECPay URL**: `https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5`
+```bash
+MerchantID: 3002607
+HashKey: pwFHCqoQZGmho4w6
+HashIV: EkRm7iFT261dpevs
+ECPay URL: https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5
+```
 
 這些參數為綠界提供的測試用資訊，僅適用於測試環境。正式上線時，請記得切換為綠界提供的正式環境參數。
 
-## 二、環境設置與執行步驟
+# 二、環境設置與執行步驟
 
 在正式進行開發之前，請確保您已完成以下環境設置步驟：
 
@@ -81,7 +87,7 @@ python manage.py runserver
 
 ---
 
-## 三、核心實作解析
+# 三、核心實作解析
 
 ### 3.1 路徑需求
 
@@ -305,7 +311,7 @@ def failed(request):
 在 order/templates/order/payment_form＿select.html，添加 `payment_form_select.html` 模板，快速將用戶導向綠界支付頁面：<br>
 (此模板使用 Tailwind 樣式製作)
 
-````html
+```html
 
 <form method="POST" action="{% url 'order:create_order' %}">
     {% csrf_token %}
@@ -365,20 +371,21 @@ def failed(request):
              </button>
         </div>
 </form>
-       ```
+
+```
 
 在 order/templates/order/payment_form.html，添加 `payment_form.html` 模板，快速將用戶導向綠界支付頁面：
 
 ```html
 <form id="ecpay_form" method="post" action="{{ ecpay_url }}">
- {% for key, value in params.items %}
- <input type="hidden" name="{{ key }}" value="{{ value }}" />
- {% endfor %}
+  {% for key, value in params.items %}
+  <input type="hidden" name="{{ key }}" value="{{ value }}" />
+  {% endfor %}
 </form>
 <script>
- document.getElementById("ecpay_form").submit(); // 自動提交表單
+  document.getElementById("ecpay_form").submit(); // 自動提交表單
 </script>
-````
+```
 
 ---
 
@@ -558,7 +565,7 @@ python manage.py migrate
 
 ---
 
-## 四、測試環境提醒
+# 四、測試環境提醒
 
 1. 測試環境參數僅適用於開發和測試。
 2. 確保在部署到生產環境前，將測試參數替換為正式環境參數。
@@ -597,7 +604,7 @@ python manage.py migrate
 
 ---
 
-## 五、安全性提醒
+# 五、安全性提醒
 
 ### 5.1 安全性注意事項
 
@@ -624,3 +631,6 @@ python manage.py migrate
 - 4000-2011-1111-1111 安全碼 : 任意輸入三碼數字
 
 ---
+
+參考資源：<br>
+[綠界測試資訊](https://developers.ecpay.com.tw/?p=2856&gad_source=1&gclid=Cj0KCQiAs5i8BhDmARIsAGE4xHzbCWc4U8T0uwCyFmMkmWhUZHDe-OZIxK5kQsoP7YmYjQMsq5h2pQ0aAqWNEALw_wcB)<br>
