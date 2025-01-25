@@ -125,13 +125,17 @@ from django.utils.http import urlsafe_base64_encode
 class CustomPasswordResetView(auth_views.PasswordResetView):
     template_name = "users/password_reset.html"
     email_template_name = "users/password_reset_email.html"
-    subject_template_name = "users/password_reset_subject.txt" #自定義郵件標題模板
+    subject_template_name = "users/password_reset_subject.txt"  # 自定義郵件標題模板
     success_url = "/users/password_reset_done/"
+    extra_context = {
+        "protocol": settings.PROTOCOL,
+        "domain": settings.DEFAULT_DOMAIN,
+    }
 
-    #覆蓋郵件發送邏輯，避免重複發送郵件
-    #目的為，可以使用HTML格式寄Email
     def form_valid(self, form):
+        """覆蓋郵件發送邏輯，避免重複發送"""
         email = form.cleaned_data["email"]
+
         for user in form.get_users(email):
             context = {
                 "email": email,
@@ -150,10 +154,12 @@ class CustomPasswordResetView(auth_views.PasswordResetView):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 to=[email],
             )
-            email_msg.content_subtype = "html" #設置內容類型為 HTML
+            email_msg.content_subtype = "html"  # 設置內容類型為 HTML
             email_msg.send()
-         # 不再調用的郵件發送邏輯
-        return super().form_valid(form)
+
+        # 不再調用的郵件發送邏輯
+        return super(auth_views.PasswordResetView, self).form_valid(form)
+
 ```
 
 #### 3.2 CustomPasswordResetDoneView
@@ -245,7 +251,7 @@ class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
 ### 4.3 發送的信件內容
 
 用戶會收到的新建內容。
-在`password_reset_done.html`輸入：
+在`password_reset_email.html`輸入：
 
 ```html
 <p>親愛的用戶，您好！這裡是三合接案平台。</p>
