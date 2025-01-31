@@ -13,7 +13,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 1️⃣ General Configuration
+## ► 一、 General Configuration
 
 ### 1.1 General purpose vs. Directory
 
@@ -36,7 +36,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 2️⃣ Object Ownership
+## ► 二、 Object Ownership
 
 ### 2.1 ACLs Disabled (Recommended)
 
@@ -50,7 +50,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 3️⃣ Block Public Access Settings
+## ► 三、 Block Public Access Settings
 
 ### 3.1 建議保持 `Block all public access` 開啟（預設）
 
@@ -59,7 +59,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 4️⃣ Bucket Versioning
+## ► 四、 Bucket Versioning
 
 ### 4.1 Disable 或 Enable？
 
@@ -70,7 +70,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 5️⃣ Tags（可選）
+## ► 五、 Tags（可選）
 
 - 可加入標籤來組織或管理資源，例如：
   - `Key: Environment, Value: Production`
@@ -79,7 +79,7 @@ tags = ['Django','AWS']
 
 ---
 
-## 6️⃣ Default Encryption
+## ► 六、 Default Encryption
 
 AWS 提供三種伺服器端加密選項：
 
@@ -100,7 +100,7 @@ AWS 提供三種伺服器端加密選項：
 
 ---
 
-## 7️⃣ 總結建議
+## ► 七、 總結建議
 
 | 設定項目                  | 建議選擇                | 理由           |
 | ------------------------- | ----------------------- | -------------- |
